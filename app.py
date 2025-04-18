@@ -18,10 +18,7 @@ if app_mode == "🏠 Home":
     - Predict customer behavior using **KMeans clustering**
     - Get personalized **product recommendations** based on content similarity  
     """)
-    st.image(
-        "https://bloomidea.com/sites/default/files/styles/og_image/public/blog/Tipos%20de%20come%CC%81rcio%20electro%CC%81nico_0.png?itok=jC9MlQZq",
-        use_column_width=True
-    )
+    st.image("https://bloomidea.com/sites/default/files/styles/og_image/public/blog/Tipos%20de%20come%CC%81rcio%20electro%CC%81nico_0.png?itok=jC9MlQZq", use_column_width=True)
 
 elif app_mode == "👥 Customer Segmentation":
     st.title("🧠 Customer Segmentation Predictor")
@@ -60,7 +57,7 @@ elif app_mode == "🛍️ Product Recommendation":
     product_features = np.load('models/product_features.npy')
     product_scaler = joblib.load('models/product_scaler.pkl')
     encoded_df = joblib.load('models/encoded_df.pkl')
-    products_df = pd.read_pickle('models/products_df.pkl')  # ✅ FIXED HERE
+    products_df = joblib.load('models/products_df.pkl')
 
     products_df = products_df.drop_duplicates(subset='product_id').reset_index(drop=True)
 
